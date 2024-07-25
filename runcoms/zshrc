@@ -15,6 +15,13 @@ fi
 
 # Customize to your needs...
 ########################################
+# Path
+export PATH="$HOME:$PATH"
+
+# Allow Overwirte on redirect
+setopt CLOBBER
+
+########################################
 # Python
 
 # pyenv
@@ -63,7 +70,10 @@ alias alsrprod='source ~/workspace/dev-simpleform/simpleform-infra/envs/workload
 alias alsrstg='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simpleresearch-stg/login.sh'
 alias chkap='aws sts get-caller-identity --no-cli-pager'
 
+########################################
 # GitHub Copilot
 eval "$(gh copilot alias -- zsh)"
+
+
 # Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

@@ -26,6 +26,20 @@ eval "$(pyenv virtualenv-init -)"
 # pipx
 export PATH="$PATH:$HOME/.local/bin"
 
+########################################
+# Node.js
+
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+########################################
+# Ruby
+
+# rbenv
+export RBENV_ROOT="$HOME/.rbenv"
+[[ -d $RBENV_ROOT/bin ]] && export PATH="$RBENV_ROOT/shims:$PATH"
+eval "$(rbenv init - zsh)"
+
 # GitHub Copilot
 eval "$(gh copilot alias -- zsh)"
 # Q post block. Keep at the bottom of this file.

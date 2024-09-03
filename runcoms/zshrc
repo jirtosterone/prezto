@@ -66,6 +66,8 @@ export TERRAGRUNT_DOWNLOAD="$HOME/.terragrunt-cache"
 ########################################
 # AWS
 alias alpg='source ~/workspace/dev-simpleform/simpleform-infra/envs/sandbox/jun-irie-playground/login.sh'
+alias almng='source ~/workspace/dev-simpleform/simpleform-infra/envs/mng/login.sh'
+alias alpgs='source ~/workspace/dev-simpleform/simpleform-infra/envs/deployments/playground-shared/login.sh'
 alias alprod='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/prod/simplecheck-prod/login.sh'
 alias alstg='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simplecheck-stg/login.sh'
 alias alitg1='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simplecheck-itg1/login.sh'

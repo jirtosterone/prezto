@@ -53,6 +53,10 @@ alias d='docker'
 alias dc='docker-compose'
 
 ########################################
+# MySQL
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
+
+########################################
 # Terraform/Terragrunt
 alias tf='terraform'
 alias tg='terragrunt'

@@ -80,6 +80,5 @@ alias chkap='aws sts get-caller-identity --no-cli-pager'
 # GitHub Copilot
 eval "$(gh copilot alias -- zsh)"
 
-
 # Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

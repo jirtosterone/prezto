@@ -18,6 +18,9 @@ fi
 # Path
 export PATH="$HOME:$PATH"
 
+# Editor
+export EDITOR=vim
+
 # Allow Overwirte on redirect
 setopt CLOBBER
 

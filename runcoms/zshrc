@@ -81,6 +81,10 @@ alias alsrstg='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads
 alias chkap='aws sts get-caller-identity --no-cli-pager'
 
 ########################################
+# Glue/Graph Notebook
+alias gldev='cd ~/workspace/dev-simpleform/simpleform-infra/modules/workloads/glue_job && code . && cd -'
+
+########################################
 # GitHub Copilot
 eval "$(gh copilot alias -- zsh)"
 

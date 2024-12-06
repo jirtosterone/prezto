@@ -17,6 +17,7 @@ fi
 ########################################
 # Path
 export PATH="$HOME:$PATH"
+export PATH="~/bin/gam7:$PATH"
 
 # Editor
 export EDITOR=vim
@@ -89,4 +90,5 @@ alias gldev='cd ~/workspace/dev-simpleform/simpleform-infra/modules/workloads/gl
 eval "$(gh copilot alias -- zsh)"
 
 # Q post block. Keep at the bottom of this file.
+alias gam="/Users/jun_irie/bin/gam7/gam"
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

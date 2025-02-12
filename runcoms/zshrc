@@ -69,20 +69,40 @@ export TERRAGRUNT_DOWNLOAD="$HOME/.terragrunt-cache"
 
 ########################################
 # AWS
-alias alpg='source ~/workspace/dev-simpleform/simpleform-infra/envs/sandbox/jun-irie-playground/login.sh'
-alias almng='source ~/workspace/dev-simpleform/simpleform-infra/envs/mng/login.sh'
-alias alaudit='source ~/workspace/dev-simpleform/simpleform-infra/envs/security/audit/login.sh'
-alias alcicd='source ~/workspace/dev-simpleform/simpleform-infra/envs/deployments/cicd/login.sh'
-alias alpgs='source ~/workspace/dev-simpleform/simpleform-infra/envs/deployments/playground-shared/login.sh'
-alias alprod='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/prod/simplecheck-prod/login.sh'
-alias alstg='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simplecheck-stg/login.sh'
-alias alitg1='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simplecheck-itg1/login.sh'
-alias alitg2='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simplecheck-itg2/login.sh'
-alias alitg3='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simplecheck-itg3/login.sh'
-alias alsrprod='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/prod/simpleresearch-prod/login.sh'
-alias alsrstg='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simpleresearch-stg/login.sh'
-alias alsritg1='source ~/workspace/dev-simpleform/simpleform-infra/envs/workloads/sdlc/simpleresearch-itg1/login.sh'
-alias chkap='aws sts get-caller-identity --no-cli-pager'
+
+# aws-sso-util
+_AWS_SSO_UTIL_COMPLETE_SCRIPT_DIR=~/.local/share/aws-sso-util
+_AWS_SSO_UTIL_COMPLETE_SCRIPT=$_AWS_SSO_UTIL_COMPLETE_SCRIPT_DIR/complete.sh
+if which aws-sso-util >/dev/null; then
+  mkdir -p $_AWS_SSO_UTIL_COMPLETE_SCRIPT_DIR
+  ({
+    if [ ! -f $_AWS_SSO_UTIL_COMPLETE_SCRIPT ]; then
+      _AWS_SSO_UTIL_COMPLETE=zsh_source aws-sso-util >$_AWS_SSO_UTIL_COMPLETE_SCRIPT.tmp
+      mv $_AWS_SSO_UTIL_COMPLETE_SCRIPT.tmp $_AWS_SSO_UTIL_COMPLETE_SCRIPT
+    fi
+  } &)
+  if [ -f $_AWS_SSO_UTIL_COMPLETE_SCRIPT ]; then
+    source $_AWS_SSO_UTIL_COMPLETE_SCRIPT
+  fi
+fi
+
+alias as='aws-sso-util'
+alias al='aws-sso-util login'
+
+alias ap='echo $AWS_PROFILE'
+alias awssts='aws sts get-caller-identity --no-cli-pager'
+alias ap-pg='export AWS_PROFILE=jun-irie-playground.awsadmin'
+alias ap-mng='export AWS_PROFILE=simpleform-mng.awsadmin'
+alias ap-audit='export AWS_PROFILE=simpleform-audit.admin'
+alias ap-pgs='export AWS_PROFILE=playground-shared.dev'
+alias ap-scprod='export AWS_PROFILE=simplecheck-prod.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:774282056395:key/73b26efa-e914-4d0c-bc78-72815be37af2'
+alias ap-scstg='export AWS_PROFILE=simplecheck-stg.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:593693681868:key/b3f3595e-b38f-4b28-9ed7-30360155c11b'
+alias ap-scitg1='export AWS_PROFILE=simplecheck-itg1.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:026996250498:key/c7fa9b02-66b4-44f2-9083-f5b2f94c79e0'
+alias ap-scitg2='export AWS_PROFILE=simplecheck-itg2.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:384384221771:key/7b9bb5c9-1229-463b-8490-ed144964494e'
+alias ap-scitg3='export AWS_PROFILE=simplecheck-itg3.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:864981715119:key/6d29c349-5120-41a9-9f0a-4955e5672b50'
+alias ap-srprod='export AWS_PROFILE=simpleresearch-prod.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:048215517348:key/946eb0ab-2e77-42c1-a933-c58fd3d55fa4'
+alias ap-srstg='export AWS_PROFILE=simpleresearch-stg.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:629690818911:key/a3f28b88-24c2-4a36-aa8b-d809b086e12e'
+alias ap-sritg1='export AWS_PROFILE=simpleresearch-itg1.dev; export SOPS_KMS_ARN=arn:aws:kms:ap-northeast-1:600627349340:key/46026088-cafb-45c0-acb7-40aea6055750'
 
 ########################################
 # Glue/Graph Notebook

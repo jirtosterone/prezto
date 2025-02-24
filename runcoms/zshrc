@@ -63,10 +63,11 @@ export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 ########################################
 # Terraform/Terragrunt
 alias tf='terraform'
-alias tg='terragrunt --terragrunt-forward-tf-stdout'
+alias tg='terragrunt'
 
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-export TERRAGRUNT_DOWNLOAD="$HOME/.terragrunt-cache"
+export TG_DOWNLOAD_DIR="$HOME/.terragrunt-cache"
+export TG_TF_FORWARD_STDOUT=true
 
 ########################################
 # AWS
